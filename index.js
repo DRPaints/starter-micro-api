@@ -394,7 +394,6 @@ http.createServer(function (req, res) {
 
   client.login(token)
 
-  require('./deploy-commands.js')
-
-  res.end();
+  // require('./deploy-commands.js')
+  // res.end();
 }).listen(process.env.PORT || 3000);
