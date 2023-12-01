@@ -1,6 +1,5 @@
 var http = require('http');
-
-http.get('/deploy-commands', function (req, res) {
+http.createServer(function (req, res) {
   console.log(`Just got a request at ${req.url}!`)
 
   require('./deploy-commands.js')
