@@ -2,13 +2,15 @@ const fs = require('node:fs')
 const path = require('node:path')
 const { Client, Events, GatewayIntentBits, Collection, ModalBuilder, TextInputBuilder, ActionRowBuilder, TextInputStyle, ActivityType, EmbedBuilder } = require('discord.js')
 const { createAudioPlayer, AudioPlayerStatus, NoSubscriberBehavior, joinVoiceChannel } = require('@discordjs/voice')
-const { token } = require('./config.json')
+// const { token } = require('./config.json')
 const { startPlayList, pauseCurrent, resumeCurrent, stopPlayList, skipCurrent, backPrevious, addToPlayList } = require('./classes/PlaylistControl')
 const { searchQuery } = require('./classes/SearchControl')
 const { addPlaylistFields, getEmbedPanel, getDefaultChannel, getPanelMessage, getDefaultPanelComponents } = require('./classes/InteractionControl')
 const { GuildChannels } = require('./classes/DatabaseConfig')
 const { updateActivity } = require('./classes/ActivityControl')
 const { connectVoiceChannel } = require('./classes/VoiceChannelControl')
+
+const token = process.env.APPLICATION_TOKEN
 
 var http = require('http');
 http.createServer(function (req, res) {
