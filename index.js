@@ -1,13 +1,4 @@
 var http = require('http');
-http.createServer(function (req, res) {
-  console.log(`Just got a request at ${req.url}!`)
-
-  require('./deploy-commands.js')
-
-  res.write('Deployed Commands!');
-  res.end();
-}).listen(process.env.PORT || 3000);
-
 const fs = require('node:fs')
 const path = require('node:path')
 const { Client, Events, GatewayIntentBits, Collection, ModalBuilder, TextInputBuilder, ActionRowBuilder, TextInputStyle, ActivityType, EmbedBuilder } = require('discord.js')
@@ -399,3 +390,11 @@ client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
 });
 
 client.login(token)
+
+http.createServer(function (req, res) {
+  console.log(`Just got a request at ${req.url}!`)
+
+  require('./deploy-commands.js')
+
+  res.end();
+}).listen(process.env.PORT || 3000);
