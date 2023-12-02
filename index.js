@@ -9,6 +9,7 @@ const { addPlaylistFields, getEmbedPanel, getDefaultChannel, getPanelMessage, ge
 const { GuildChannels } = require('./classes/DatabaseConfig')
 const { updateActivity } = require('./classes/ActivityControl')
 const { connectVoiceChannel } = require('./classes/VoiceChannelControl')
+var http = require('http');
 
 const token = process.env.APPLICATION_TOKEN
 
